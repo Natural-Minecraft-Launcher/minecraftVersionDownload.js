@@ -1,0 +1,8 @@
+<script src="jquery-3.7.1.min.js"></script>
+<script src="minecraftVersionDownload.js"></script>
+<script>
+    var list = getVersionList()
+    console.log('getDownloadList("1.21.8",list,"1.21.8")',getDownloadList("1.21.8",list,"1.21.8"))
+    console.log('getVersionJavaVersion("1.21.8",list)',getVersionJavaVersion("1.21.8",list))
+    console.log('getDownloadZipList(getVersionManifest("1.21.8",list))',getDownloadZipList(getVersionManifest("1.21.8",list)))
+</script>
