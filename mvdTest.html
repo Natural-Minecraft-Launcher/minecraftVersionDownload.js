@@ -3,6 +3,7 @@
 <script>
     var list = getVersionList()
     console.log('getDownloadList("1.21.8",list,"1.21.8")',getDownloadList("1.21.8",list,"1.21.8"))
-    console.log('getVersionJavaVersion("1.21.8",list)',getVersionJavaVersion("1.21.8",list))
-    console.log('getDownloadZipList(getVersionManifest("1.21.8",list))',getDownloadZipList(getVersionManifest("1.21.8",list)))
+    var versionList = getVersionManifest("1.21.8",list)
+    console.log('getVersionJavaVersion(versionList)',getVersionJavaVersion(versionList))
+    console.log('getDownloadZipList(versionList)',getDownloadZipList(versionList))
 </script>

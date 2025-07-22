@@ -1,4 +1,5 @@
 //copyright 2025 sungbly1tsstt
+jQuery.support.cors = true;
 function getVersionList(){
     return($.ajax({
         async: false,
@@ -43,27 +44,14 @@ function getDownloadList(name,list,gameName){
     for (var i = 0;i<downloadList.libraries.length;i++){
         downloadJSON += ',{"url":"'+downloadList.libraries[i].downloads.artifact.url+'","path":"libraries/'+downloadList.libraries[i].downloads.artifact.path+'"}'
     }
+    if(typeof downloadList.logging.client.file.url != 'undefined'){
+        downloadJSON += '{"url":"'+downloadList.logging.client.file.url+'","path":"versions/'+gameName+'/'+downloadList.logging.client.file.id+'"}'
+    }
     downloadJSON += "]"
     return(downloadJSON)
 }
-function getVersionJavaVersion(name,list){
-    console.log('list',list)
-    var index = -1;
-    for(var i = 0;i < list["versions"].length;i++){
-        if(list.versions[i].id == name){
-            index = i;
-        }
-    }
-    if(index == -1){
-        return(0)
-    }
-    var downloadList = $.ajax({
-        async: false,
-        cache: false,
-        type: "GET",
-        url: list.versions[index].url
-    }).responseJSON
-    return(downloadList.javaVersion.majorVersion)
+function getVersionJavaVersion(list){
+    return(list.javaVersion.majorVersion)
 }
 function getDownloadZipList(list){
     var zipList = ""
