@@ -34,7 +34,7 @@ function getDownloadList(name,list,gameName){
     }).responseJSON
     downloadJSON += '{"url":"'+list.versions[index].url+'","path":"versions/'+gameName+'/'+gameName+'.json"}'
     console.log('asset',asset)
-    downloadJSON += ',{"url":"'+downloadList["assetIndex"].url+'","path":"assets/indexes/'+name+'.json"}'
+    downloadJSON += ',{"url":"'+downloadList["assetIndex"].url+'","path":"assets/indexes/'+downloadList.assetIndex.id+'.json"}'
     for (var i = 0;i<Object.keys(asset.objects).length;i++){
         downloadJSON += ',{"url":"https://resources.download.minecraft.net/'+asset["objects"][Object.keys(asset.objects)[i]].hash.substring(0,2)+"/"+asset["objects"][Object.keys(asset.objects)[i]].hash+'","path":"assets/objects/'+asset["objects"][Object.keys(asset.objects)[i]].hash.substring(0,2)+"/"+asset["objects"][Object.keys(asset.objects)[i]].hash+'"}'
     }
